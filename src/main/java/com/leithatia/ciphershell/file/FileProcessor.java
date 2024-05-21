@@ -59,12 +59,14 @@ public class FileProcessor {
      * @throws Exception if an error occurs during the decryption process.
      */
     public static void processFileForDecryption(String filePath, char[] passphrase) throws Exception {
+        String decryptedFileName = null;
+
         try (InputStream fileInputStream = new FileInputStream(filePath)) {
             FileHeader fileHeader = readHeader(fileInputStream);
 
             validateFileEncryption(filePath, fileHeader.getMagicNumber());
 
-            String decryptedFileName = generateDecryptedFileName(filePath, fileHeader);
+            decryptedFileName = generateDecryptedFileName(filePath, fileHeader);
             SecretKey secretKey = CipherUtil.generateKey(passphrase, fileHeader.getSalt());
 
 
@@ -75,6 +77,15 @@ public class FileProcessor {
                 writeData(fileOutputStream, decryptedStream);
 
             }
+        } catch (Exception e) {
+            // If exception occurs and file was created, delete file
+            if (decryptedFileName != null) {
+                File file = new File(decryptedFileName);
+                if (file.exists() && !file.delete()) {
+                    System.out.println("Failed to delete corrupted file: " + decryptedFileName);
+                }
+            }
+            throw e;
         } finally {
             if (passphrase != null) {
                 PassphraseHandler.clearPassphrase(passphrase);
