@@ -102,7 +102,7 @@ public class FileProcessor {
      * @throws IOException if an I/O error occurs.
      */
     static FileHeader readHeader(InputStream inputStream) throws IOException {
-        byte[] header = new byte[42];
+        byte[] header = new byte[FileHeader.HEADER_LENGTH];
         inputStream.readNBytes(header, 0, FileHeader.HEADER_LENGTH);
         FileHeader fileHeader = new FileHeader();
         fileHeader.setHeader(header);
