@@ -63,7 +63,13 @@ java -jar ciphershell.jar -e secrets.txt
 java -jar ciphershell.jar -d secrets.enc
 ```
 
- 
+## Development Mode
+
+For development purposes, especially when using an IDE, you might want to set the DEV_MODE variable to true in the PassphraseHandler class. This allows you to enter the passphrase via standard input rather than relying on a console input, which might not be available in some IDEs. 
+
+```java
+private static final boolean DEV_MODE = true; // Set to true for development
+```
 
 ## Contributing
 
