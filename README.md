@@ -2,7 +2,7 @@
 
 Cipher Shell is a CLI application for encrypting and decrypting files using AES encryption. It uses a user-provided passphrase to generate a secure key to encrypt/decrypt any given file.
 
-I am interested in cybersecurity so I thought this would be a fun project to tackle and better understand cryptography using Java's Cipher class.
+I have an interest in cybersecurity so I thought this would be a fun project to tackle and better understand cryptography using Java's Cipher class.
 
 ### Features
 - AES/CBC/PKCS5Padding encryption and decryption.
