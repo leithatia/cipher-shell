@@ -34,7 +34,7 @@ mvn clean package
 ```
 ## Usage
 
-You can use the newly created jar file from Maven or alternatively, if you trust me *insert evil laugh*, you can download the pre-built JAR file from the [releases](https://github.com/leithatia/cipher-shell/releases/tag/v1.0) page. Either way, navigate to the folder containing the jar file (target folder if using Maven), rename jar file to `ciphershell.jar` if needed and run the application with:
+You can use the newly created jar file from Maven or alternatively, if you trust me *insert evil laugh*, you can download the pre-built JAR file from the [releases](https://github.com/leithatia/cipher-shell/releases/tag/v1.0) page. Either way, navigate to the folder containing the jar file (`target` folder if using Maven), rename jar file to `ciphershell.jar` if needed and run the application with:
 
 ```bash
 java -jar ciphershell.jar <encrypt|decrypt> <filename>
