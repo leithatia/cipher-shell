@@ -10,8 +10,6 @@ I have an interest in cybersecurity so I thought this would be a fun project to 
 - Salts and initial vectors for added security.
 - Magic number to validate the encrypted file.
 - File extension preservation.
-- File I/O streams.
-- JUnit & Mockito tests.
 
 ## How it works
 The application can run in encrypt or decrypt mode and processes a given file. The user is prompted for a passphrase which, along with a randomly generated salt and initial vector, is used to to generate a secret key using an AES algorithm. 
