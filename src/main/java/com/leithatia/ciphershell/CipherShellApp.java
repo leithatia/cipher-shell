@@ -34,14 +34,8 @@ public class CipherShellApp {
 
         try {
             switch (mode) {
-                case "-e", "encrypt" -> {
-                    FileProcessor.setEncryptionMode(Cipher.ENCRYPT_MODE);
-                    FileProcessor.processFileForEncryption(filepath, PassphraseHandler.requestPassphrase());
-                }
-                case "-d", "decrypt" -> {
-                    FileProcessor.setEncryptionMode(Cipher.DECRYPT_MODE);
-                    FileProcessor.processFileForDecryption(filepath, PassphraseHandler.requestPassphrase());
-                }
+                case "-e", "encrypt" -> encryptFile(filepath);
+                case "-d", "decrypt" -> decryptFile(filepath);
                 default -> {
                     System.err.println("Unknown argument: " + args[1] + ". Use 'encrypt' or 'decrypt'.");
                     System.exit(1);
@@ -55,5 +49,28 @@ public class CipherShellApp {
         } catch (Exception e) {
             System.out.println("An unexpected error occurred: " + e.getMessage());
         }
+
+    }
+
+    /**
+     * Encrypts the specified file.
+     *
+     * @param filepath the path of the file to encrypt.
+     * @throws Exception if an error occurs during encryption.
+     */
+    private static void encryptFile(String filepath) throws Exception {
+        FileProcessor.setEncryptionMode(Cipher.ENCRYPT_MODE);
+        FileProcessor.processFileForEncryption(filepath, PassphraseHandler.requestPassphrase());
+    }
+
+    /**
+     * Decrypts the specified file.
+     *
+     * @param filepath the path of the file to decrypt.
+     * @throws Exception if an error occurs during decryption.
+     */
+    private static void decryptFile(String filepath) throws Exception {
+        FileProcessor.setEncryptionMode(Cipher.DECRYPT_MODE);
+        FileProcessor.processFileForDecryption(filepath, PassphraseHandler.requestPassphrase());
     }
 }
