@@ -72,9 +72,8 @@ public class CipherUtil {
      * @return byte array containing random salt
      */
     public static byte[] generateSalt() {
-        SecureRandom secureRandom = new SecureRandom();
         byte[] salt = new byte[SALT_LENGTH];
-        secureRandom.nextBytes(salt);
+        new SecureRandom().nextBytes(salt);
         return salt;
     }
 
