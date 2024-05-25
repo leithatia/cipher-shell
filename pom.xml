@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.leithatia.ciphershell</groupId>
-    <artifactId>cipher-shell</artifactId>
-    <version>1.0.0</version>
+    <artifactId>ciphershell</artifactId>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
