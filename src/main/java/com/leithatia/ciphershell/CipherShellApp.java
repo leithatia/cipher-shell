@@ -70,7 +70,23 @@ public class CipherShellApp {
      * @throws Exception if an error occurs during decryption.
      */
     private static void decryptFile(String filepath) throws Exception {
+        if (hasEncFileExtension(filepath)) {
+            System.out.println("File appears to already be encrypted.");
+            System.exit(1);
+        }
         FileProcessor.setEncryptionMode(Cipher.DECRYPT_MODE);
         FileProcessor.processFileForDecryption(filepath, PassphraseHandler.requestPassphrase());
+    }
+
+    /**
+     * Checks if the given file path has an ".enc" extension.
+     * This method checks the provided file path to determine if it ends with the
+     * ".enc" extension, indicating that the file is an encrypted file.
+     *
+     * @param filepath the file path to check.
+     * @return {@code true} if the file path ends with ".enc", {@code false} otherwise.
+     */
+    private static boolean hasEncFileExtension(String filepath) {
+        return filepath.endsWith(".enc");
     }
 }
